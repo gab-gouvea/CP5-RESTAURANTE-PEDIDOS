@@ -13,7 +13,6 @@ public record PedidoRequestDTO(
         String nomeCliente,
 
         @NotBlank
-        @Pattern(regexp = "\\(\\d{2}\\)\\s\\d{4,5}-\\d{4}")
         String telefoneCliente,
 
         @Size(max = 200)
