@@ -1,6 +1,7 @@
 package br.com.restaurante.pedidos.dto;
 
 import br.com.restaurante.pedidos.entity.ItemPedido;
+import br.com.restaurante.pedidos.entity.Item;
 
 import java.math.BigDecimal;
 
@@ -12,18 +13,18 @@ public record ItemPedidoResponseDTO(
         BigDecimal precoUnitario,
         BigDecimal subtotal,
         String observacoesItem,
-        ItemPedido.CategoriaProduto categoria
+        Item.CategoriaItem categoria
 ) {
     public ItemPedidoResponseDTO(ItemPedido itemPedido) {
         this(
                 itemPedido.getId(),
-                itemPedido.getNomeProduto(),
-                itemPedido.getDescricaoProduto(),
+                itemPedido.getItem().getNome(),
+                itemPedido.getItem().getDescricao(),
                 itemPedido.getQuantidade(),
                 itemPedido.getPrecoUnitario(),
                 itemPedido.getSubtotal(),
                 itemPedido.getObservacoesItem(),
-                itemPedido.getCategoria()
+                itemPedido.getItem().getCategoria()
         );
     }
 }
